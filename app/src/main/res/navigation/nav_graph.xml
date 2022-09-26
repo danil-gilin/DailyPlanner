@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.example.dailyplanner.presenter.calendar.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_caseDescriptionFragment"
+            app:destination="@id/caseDescriptionFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_addCaseFragment"
+            app:destination="@id/addCaseFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/caseDescriptionFragment"
+        android:name="com.example.dailyplanner.presenter.caseDescription.CaseDescriptionFragment"
+        android:label="fragment_case_description"
+        tools:layout="@layout/fragment_case_description" />
+    <fragment
+        android:id="@+id/addCaseFragment"
+        android:name="com.example.dailyplanner.presenter.addCase.AddCaseFragment"
+        android:label="fragment_add_case"
+        tools:layout="@layout/fragment_add_case" />
+</navigation>

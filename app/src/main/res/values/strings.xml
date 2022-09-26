@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">DailyPlanner</string>
+    <string name="back_to_calendar">Back to calendar</string>
+    <string name="add_case_take_date">Выберите дату</string>
+    <string name="btn_creat_text">Создать</string>
+    <string name="add_case_take_end_time">Выберите время конца</string>
+    <string name="add_case_take_time_start">Выберите время начала</string>
+    <string name="btn_date_text">дата</string>
+    <string name="btn_start_time_text">Время начала</string>
+    <string name="btn_end_time_text">Время конца</string>
+    <string name="description">описание</string>
+    <string name="name_case">название</string>
+    <string name="add_case_btn_main_text">add case</string>
+    <string name="calendar_img_full_info_text">Calendar</string>
+    <string name="time_rc_for_debug">00:00</string>
+    <string name="hour_case_time_text_for_debug">00:00-22:00</string>
+    <string name="hour_case_name_text_for_debug">Русские буквы</string>
+</resources>
