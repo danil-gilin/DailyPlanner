@@ -22,6 +22,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -107,7 +108,7 @@ class AddCaseFragment : Fragment() {
                 .setTimeFormat(TimeFormat.CLOCK_24H)
                 .build().apply {
                     addOnPositiveButtonClickListener{
-                        val timeStartPicker=this.hour*Constance.HOUR+this.minute*60000L
+                        val timeStartPicker=this.hour*Constance.HOUR+this.minute*Constance.MINUTE-clockGMT()
                         binding.txtStartTime.text=SimpleDateFormat(Constance.SIMPLE_HOUR_FROMAT).format(timeStartPicker)
                         timeStart=timeStartPicker
                     }
@@ -121,7 +122,7 @@ class AddCaseFragment : Fragment() {
                 .setTimeFormat(TimeFormat.CLOCK_24H)
                 .build().apply {
                     addOnPositiveButtonClickListener{
-                        val timeEndPicker=this.hour*Constance.HOUR+this.minute*60000L
+                        val timeEndPicker=this.hour*Constance.HOUR+this.minute*Constance.MINUTE-clockGMT()
                         binding.txtEndTime.text=SimpleDateFormat(Constance.SIMPLE_HOUR_FROMAT).format(timeEndPicker)
                         timeEnd=timeEndPicker
                     }
@@ -145,5 +146,11 @@ class AddCaseFragment : Fragment() {
         return binding.root
     }
 
+    fun clockGMT():Long{
+        val mCalendar: Calendar = GregorianCalendar()
+        val mTimeZone = mCalendar.timeZone
+        val mGMTOffset = mTimeZone.rawOffset
+        return TimeUnit.MINUTES.convert(mGMTOffset.toLong(), TimeUnit.MILLISECONDS)*Constance.MINUTE
+    }
 
 }

@@ -43,6 +43,8 @@ class AddCaseViewModel @Inject constructor(private val addDayCaseUseCase: AddDay
             //подведение итогов и смена состояние
             if (errorMap.values.all { it }){
                 val case=NewCaseDB(null, Timestamp(timeDate+timeStart),Timestamp(timeDate+timeEnd),name,descrption)
+
+
                 addDayCaseUseCase.addDayCase(case)
                 _state.value=StateAddCase.Succses
             }else{
